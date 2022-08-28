@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+service Agent {
+    // Agent handles evaluation requests from other agents..
+    rpc GetEvaluation(EvaluationRequest) returns (EvaluationResponse) {}
+    rpc GetState(StateRequest) returns (StateResponse) {}
+}
+
+// EvaluationRequest is the request message sent to the agent.
+message EvaluationRequest {
+    string sample = 1;
+    bytes ndarray = 2;
+}
+
+// EvaluationResponse is the response message sent from the agent.
+message EvaluationResponse {
+    enum Decision {
+        BENiGN = 0;
+        ANOMALY = 1;
+    }
+
+    Decision decision = 1;
+    bytes ndarray = 2;
+    int32 experience = 3;
+}
+
+// StateRequest is the request message sent to the agent.
+message StateRequest {
+    string id = 1;
+}
+
+// StateResponse is the response message sent from the agent.
+message StateResponse {
+    string state = 1;
+    int32 experience = 2;
+}
+

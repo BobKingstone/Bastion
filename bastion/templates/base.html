@@ -10,13 +10,15 @@
     <title>Bastion</title>
     {% endblock %}
 
+    <script type="text/javascript" src="//cdn.socket.io/4.4.1/socket.io.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 </head>
 
 <body>
     <div class="container">
         {% block navbar %}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Bastion</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,5 +1,8 @@
-from flask import Flask
-from flask import Blueprint
+from socket import socket
+from flask import Flask, Blueprint
+from flask_socketio import SocketIO
+
+socketio = SocketIO()
 
 
 def create_flask_app():
@@ -8,9 +11,9 @@ def create_flask_app():
     """
     app = Flask(__name__)
     # app.config.from_py_file(config)
+    socketio.init_app(app)
 
     # add extensions here e.g. db, migrate, etc.
-
     # Register main blueprint
     from bastion.home import home as home_blueprint
 
